@@ -1,0 +1,24 @@
+CREATE DATABASE taskManager
+
+USE taskManager
+
+CREATE TABLE task_list(
+task_id INT NOT NULL AUTO_INCREMENT,
+task_name VARCHAR(100) NOT NULL,
+task_description TEXT,
+task_priority VARCHAR(20),
+task_status VARCHAR(20),
+task_start_time DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+task_end_time DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+task_archived BOOL DEFAULT FALSE,
+PRIMARY KEY(task_id)
+);
+
+INSERT INTO task_list VALUES(1,'Gathering Requirement','Requirement Gathering','MEDIUM','ACTIVE',CURTIME(),CURTIME() + INTERVAL 3 HOUR,0);
+INSERT INTO task_list VALUES(2,'Application Designing','Application Designing','MEDIUM','ACTIVE',CURTIME(),CURTIME() + INTERVAL 2 HOUR,0);
+INSERT INTO task_list VALUES(3,'Implementation','Implementation','MEDIUM','ACTIVE',CURTIME(),CURTIME() + INTERVAL 3 HOUR,0);
+INSERT INTO task_list VALUES(4,'Unit Testing','Unit Testing','LOW','ACTIVE',CURTIME(),CURTIME() + INTERVAL 4 HOUR,0);
+INSERT INTO task_list VALUES(5,'Maintanence','Maintanence','LOW','ACTIVE',CURTIME(),CURTIME() + INTERVAL 5 HOUR,0);
+
+
+SELECT * FROM task_list;
