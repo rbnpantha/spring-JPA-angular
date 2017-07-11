@@ -22,14 +22,20 @@ Unlike writing a plain DAO that consists of plain JDBC code everywhere, full of 
 
 # Annotation 
 
-@Entity : 
+@Entity : The @Entity annotation to the Task class which marks this class as an entity bean, so it must have a no-argument constructor that is visible with at least protected scope.
 
+@Table : The @Table annotation allows you to specify the details of the table that will be used to persist the entity in the database.
 
-@Table :
+@Column : The @Column annotation is used to specify the details of the column to which a field or property will be mapped. You can use column annotation with the following most commonly used attributes:
 
+        => name : attribute permits the name of the column to be explicitly specified.
+        => length : attribute permits the size of the column used to map a value particularly for a String value.         
+        => nullable : attribute permits the column to be marked NOT NULL when the schema is generated.
+        => unique : attribute permits the column to be marked as containing only unique values.
+        
+@Id and @GeneratedValue Annotations : Each entity bean will have a primary key, which you annotate on the class with the @Id annotation. The primary key can be a single field or a combination of multiple fields depending on your table structure.
 
-@Column :
-
+By default, the @Id annotation will automatically determine the most appropriate primary key generation strategy to be used but you can override this by applying the @GeneratedValue annotation which takes two parameters strategy and generator.
 
 @RepositoryRestResource : This annotation is responsible for exposing this repository interface as a RESTFul resource. This is pretty much similar to @RestController which we used in plain Spring MVC REST to expose a controller as RESTFul resource.
 
